@@ -2,28 +2,28 @@
   <div class="content-navigation">
     <ul class="content-navigation__list">
       <li class="content-navigation__item" v-bind:class="{'is-active': selectedItem === 'tweets'}">
-        <a href="#" class="content-navigation__link" @click="selectItem('tweets')">
+        <a href="#" class="content-navigation__link" @click.prevent="selectItem('tweets')">
           <span class="content-navigation__title">Tweets</span>
           <span class="content-navigation__count">200</span>
         </a>
       </li><!-- /.content-navigation__item -->
 
       <li class="content-navigation__item" v-bind:class="{'is-active': selectedItem === 'media'}">
-        <a href="#" class="content-navigation__link" @click="selectItem('media')">
+        <a href="#" class="content-navigation__link" @click.prevent="selectItem('media')">
           <span class="content-navigation__title">Photos/Videos</span>
           <span class="content-navigation__count">200</span>
         </a>
       </li><!-- /.content-navigation__item -->
 
       <li class="content-navigation__item" v-bind:class="{'is-active': selectedItem === 'following'}">
-        <a href="#" class="content-navigation__link" @click="selectItem('following')">
+        <a href="#" class="content-navigation__link" @click.prevent="selectItem('following')">
           <span class="content-navigation__title">Following</span>
           <span class="content-navigation__count">200</span>
         </a>
       </li><!-- /.content-navigation__item -->
 
       <li class="content-navigation__item" v-bind:class="{'is-active': selectedItem === 'followers'}">
-        <a href="#" class="content-navigation__link" @click="selectItem('followers')">
+        <a href="#" class="content-navigation__link" @click.prevent="selectItem('followers')">
           <span class="content-navigation__title">Followers</span>
           <span class="content-navigation__count">1M</span>
         </a>
@@ -55,6 +55,10 @@
     box-shadow: 0 1px 5px rgba(0,0,0,0.1);
     height: 80px;
     margin-bottom: 30px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 15px;
+    }
 
     &__list {
       display: flex;

@@ -17,6 +17,11 @@
     right: 0;
     position: absolute;
     top: 0;
+    transition: all .25s;
     width: 300px;
+
+    @media (max-width: 1200px) {
+      transform: translateX(100%);
+    }
   }
 </style>

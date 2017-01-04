@@ -1,40 +1,57 @@
 <template>
   <div class="app-header">
-    <div class="app-header__compose">
-      <button class="app-header__button">
-        <img src="/static/icons/feather--white.svg" alt="" />
-      </button>
-    </div><!-- /.app-header__compose -->
-
-    <div class="app-header__navigation">
-      <button class="app-header__button">
-        <img src="/static/icons/bell.svg" alt="" />
-      </button>
-      <button class="app-header__button">
-        <img src="/static/icons/mail.svg" alt="" />
-      </button>
-      <button class="app-header__button">#</button>
-    </div><!-- /.app-header__navigation -->
-
     <div class="app-header__logo">
       <a href="#">
-        <img src="/static/icons/twitter-logo--blue.svg" alt="" />
+        <!-- <img src="/static/icons/twitter-logo--blue.svg" alt="" /> -->
+        <i class="fa fa-twitter"></i>
       </a>
     </div><!-- /.app-header__logo -->
 
-    <div class="app-header__search">
-      <input type="text" class="app-header__search-input" placeholder="Search" />
-    </div><!-- /.app-header__search -->
+    <div class="app-header__left-navbar">
+      <div class="app-header__profile-toggle">
+        <button class="app-header__button" @click="toggleProfileSidebar()">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div><!-- /.app-header__profile-toggle -->
 
-    <div class="app-header__profile">
-      <img src="/static/icons/blank-profile.png" alt="" />
-    </div><!-- /.app-header__profile -->
+      <div class="app-header__compose">
+        <button class="app-header__button">
+          <img src="/static/icons/feather--white.svg" alt="" />
+        </button>
+      </div><!-- /.app-header__compose -->
+
+      <div class="app-header__navigation">
+        <button class="app-header__button">
+          <img src="/static/icons/bell.svg" alt="" />
+        </button>
+        <button class="app-header__button">
+          <img src="/static/icons/mail.svg" alt="" />
+        </button>
+        <button class="app-header__button">#</button>
+      </div><!-- /.app-header__navigation -->
+    </div><!-- /.app-header__left-navbar -->
+
+    <div class="app-header__right-navbar">
+      <div class="app-header__search">
+        <input type="text" class="app-header__search-input" placeholder="Search" />
+      </div><!-- /.app-header__search -->
+
+      <div class="app-header__profile">
+        <img src="/static/icons/blank-profile.png" alt="" />
+      </div><!-- /.app-header__profile -->
+    </div><!-- /.app-header__right-navbar -->
   </div><!-- /.app-header -->
 </template>
 
 <script>
   export default {
-    name: 'app-header'
+    name: 'app-header',
+
+    methods: {
+      toggleProfileSidebar () {
+        this.$emit('toggle-profile-sidebar')
+      }
+    }
   }
 </script>
 
@@ -63,6 +80,31 @@
       margin-top: 20px;
       outline: none;
       width: 40px;
+    }
+
+    &__profile-toggle {
+      align-self: flex-start;
+      border-right: 1px solid #f1ede6;
+      display: none;
+      height: 80px;
+      text-align: center;
+      width: 80px;
+
+      .app-header__button {
+        font-size: 14px;
+        line-height: 32px;
+      }
+
+      @media (max-width: 840px) {
+        display: block;
+      }
+    }
+
+    &__left-navbar {
+      align-self: flex-start;
+      display: -moz-box;
+      display: flex;
+      flex: 1 0 auto;
     }
 
     &__compose {
@@ -124,6 +166,7 @@
     }
 
     &__logo {
+      color: #80a8cc;
       display: flex;
       left: 50%;
       height: 80px;
@@ -132,7 +175,10 @@
       top: 0;
 
       a {
+        color: #80a8cc;
         display: block;
+        font-size: 40px;
+        line-height: 40px;
         padding-top: 16px;
         height: 100%;
       }
@@ -140,6 +186,11 @@
       img {
         height: 40px;
       }
+    }
+
+    &__right-navbar {
+      align-self: flex-end;
+      display: flex;
     }
 
     &__search {
@@ -169,6 +220,11 @@
       &:focus {
         background-color: #fff;
       }
+
+      &::placeholder {
+        font-family: inherit;
+        font-weight: 300;
+      }
     }
 
     &__profile {
@@ -184,6 +240,79 @@
         border-radius: 50%;
         height: 40px;
         width: 40px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .app-header {
+      height: 60px;
+
+      &__profile-toggle,
+      &__compose,
+      &__logo,
+      &__profile {
+        height: 60px;
+        padding: 0 14px;
+        width: 60px;
+      }
+
+      &__button {
+        height: 32px;
+        line-height: 32px;
+        margin-top: 14px;
+        margin-right: 10px;
+        width: 32px;
+      }
+
+      &__navigation {
+        height: 60px;
+        padding: 0 14px;
+
+        .app-header__button {
+          border-right: 0px;
+          border-radius: 0;
+          line-height: 32px;
+          margin-right: 0;
+
+          &:first-child {
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+          }
+
+          &:last-child {
+            border-right: 1px solid #e3dfd8;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+          }
+        }
+      }
+
+      &__logo {
+        a {
+          padding-top: 10px;
+        }
+      }
+
+      &__search {
+        height: 60px;
+        padding: 0 14px;
+        padding-right: 0;
+      }
+
+      &__search-input {
+        height: 32px;
+        width: 150px;
+      }
+
+      &__profile {
+        margin-right: 0;
+        padding: 0 14px;
+
+        img {
+          height: 32px;
+          width: 32px;
+        }
       }
     }
   }
