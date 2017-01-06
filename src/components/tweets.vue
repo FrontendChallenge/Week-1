@@ -6,10 +6,6 @@
     <tweet></tweet>
     <tweet></tweet>
     <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
-    <tweet></tweet>
   </div><!-- /.tweets -->
 </template>
 

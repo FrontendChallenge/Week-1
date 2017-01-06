@@ -1,12 +1,17 @@
 <template>
   <div class="profile-sidebar">
-    
+    <profile></profile>
   </div><!-- /.profile-sidebar -->
 </template>
 
 <script>
+  import Profile from './profile.vue'
+
   export default {
-    name: 'profile-sidebar'
+    name: 'profile-sidebar',
+    components: {
+      Profile
+    }
   }
 </script>
 

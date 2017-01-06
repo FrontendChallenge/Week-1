@@ -67,6 +67,11 @@ export default {
     padding: 0;
   }
 
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
   html, body, #app {
     height: 1px;
     min-height: 100%;
@@ -74,5 +79,10 @@ export default {
 
   body {
     font-family: Lato;
+  }
+
+  .fa.fa-reply {
+    text-align: left;
+    transform: rotateY(180deg);
   }
 </style>
