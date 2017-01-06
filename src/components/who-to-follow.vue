@@ -15,16 +15,18 @@
     <div class="follow-user">
       <div class="follow-user__meta">
         <div class="follow-user__avatar">
-          <img src="https://pbs.twimg.com/profile_images/768529565966667776/WScYY_cq_400x400.jpg" alt="" />
+          <img src="https://pbs.twimg.com/profile_images/745553396015505408/E7b52fGn_bigger.jpg" alt="" />
         </div>
-        <div class="follow-user__name">jack</div>
+        <a class="follow-user__name" href="http://twitter.com/dgrubelic">Davor Grubelić</a>
         <button class="follow-user__button">+</button>
       </div><!-- /.follow-user__meta -->
 
-      <div class="follow-user__description">CEO @ Twitter</div>
+      <div class="follow-user__description">Frontend developer</div>
     </div><!-- /.follow-user -->
   </div><!-- /.who-to-follow -->
 </template>
+
+
 
 <script>
   export default {
@@ -59,6 +61,11 @@
         height: inherit;
         width: inherit;
       }
+    }
+
+    &__name {
+      color: inherit;
+      text-decoration: none;
     }
 
     &__description {
