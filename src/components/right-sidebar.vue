@@ -14,15 +14,22 @@
       <a href="#" class="trends__trend">JulQuen For OBTCHTheMovie</a>
     </div><!-- /.trends -->
 
-    <div class="who-to-follow">
+    <div class="who-to-follow-container">
       <div class="sidebar__heading">Who to follow</div><!-- /.sidebar__heading -->
+
+      <who-to-follow></who-to-follow>
     </div><!-- /.who-to-follow -->
   </div><!-- /.right-sidebar -->
 </template>
 
 <script>
+  import WhoToFollow from './who-to-follow.vue'
+
   export default {
-    name: 'right-sidebar'
+    name: 'right-sidebar',
+    components: {
+      WhoToFollow
+    }
   }
 </script>
 
